@@ -38,6 +38,7 @@ namespace VineBoomAndMetalPipe
             GameObject soundPlayer = new GameObject();
             GameObject soundPlayerInst = Object.Instantiate(soundPlayer, __instance.transform.position, Quaternion.identity, __instance.transform);
             soundPlayerInst.AddComponent(typeof(AudioSource));
+            soundPlayerInst.GetComponent<AudioSource>().playOnAwake = false;
             soundPlayerInst.name = "SoundPlayer";
         }
     }
@@ -52,7 +53,7 @@ namespace VineBoomAndMetalPipe
                 if (__instance.transform.GetChild(i).name == "SoundPlayer")
                 {
                     __instance.transform.GetChild(i).GetComponent<AudioSource>().clip = VineBoomAndMetalPipe.Plugin.Instance.metalPipe;
-                    __instance.transform.GetChild(i).GetComponent<AudioSource>().volume = 0.75f;
+                    __instance.transform.GetChild(i).GetComponent<AudioSource>().volume = 0.5f;
                     __instance.transform.GetChild(i).GetComponent<AudioSource>().Play();
                 }
             }
